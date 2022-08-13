@@ -1,7 +1,9 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
+// Package imports:
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,47 +30,13 @@ class MyApp extends StatelessWidget {
                 height: 5,
               ),
               Container(
-                width: 200,
-                height: 200,
-                child: Image.asset('assets/images/1.jpg'),
-              ),
-              Container(
-                child: const Text.rich(
-                  TextSpan(children: [
-                    TextSpan(
-                      text: 'Рисунок',
-                      style: TextStyle(fontFamily: 'ofont_Garet', fontSize: 30),
-                    ),
-                    TextSpan(
-                        text: 'MAC',
-                        style: TextStyle(
-                            fontFamily: 'ofont_Garet',
-                            fontSize: 40,
-                            color: Colors.red))
-                  ]),
-                ),
-              ),
-              Container(
-                child: Shimmer.fromColors(
-                    child: const Text(
-                      'RUSSIA',
-                      style:
-                          TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-                    ),
-                    baseColor: Colors.blue,
-                    highlightColor: Colors.red),
-              ),
-              Container(
-                child: SvgPicture.asset(
-                  'assets/images/sport.svg',
-                  semanticsLabel: 'Acme Logo',
-                  height: 200,
-                ),
-              ),
-              Container(
-                child: CarouselSlider(
-                    items: null, options: CarouselOptions(height: 100)),
-              )
+                  child: CarouselSlider.builder(
+                      itemCount: imgList.length,
+                      itemBuilder: ((context, index, realIndex) {
+                        final imgLists = imgList[index];
+                        return builderImage(imgLists, index);
+                      }),
+                      options: CarouselOptions(height: 400))),
             ],
           ),
         ),
@@ -76,3 +44,14 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+Widget builderImage(String imgLists, int index) => Container(
+      margin: const EdgeInsets.symmetric(horizontal: 12),
+      child: SvgPicture.asset(
+        'assets/images/sport.svg',
+        semanticsLabel: 'Acme Logo',
+        height: 200,
+      ),
+    );
+// картинки для carousel_slider
+final imgList = [''];
