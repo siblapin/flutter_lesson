@@ -1,10 +1,5 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
 import 'carouselWidget.dart';
 
 void main() {
@@ -19,11 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Center(
-              child: Text(
-            'Урок 1',
-            style: TextStyle(fontFamily: 'ofont_Garet', fontSize: 40),
-          )),
+          title: const textAppBar(),
         ),
         body: Center(
           child: Column(
@@ -31,11 +22,26 @@ class MyApp extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              Container(child: carouselWidget()),
+              Container(child: const carouselWidget()),
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+class textAppBar extends StatelessWidget {
+  const textAppBar({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+        child: Text(
+      'Урок 1',
+      style: TextStyle(fontFamily: 'ofont_Garet', fontSize: 40),
+    ));
   }
 }
