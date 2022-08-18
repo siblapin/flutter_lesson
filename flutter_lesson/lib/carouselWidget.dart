@@ -2,8 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 
-class carouselWidget extends StatelessWidget {
-  const carouselWidget({
+class CarouselWidget extends StatelessWidget {
+  const CarouselWidget({
     Key? key,
   }) : super(key: key);
 

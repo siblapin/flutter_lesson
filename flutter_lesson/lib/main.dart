@@ -1,4 +1,5 @@
 // Flutter imports:
+
 import 'package:flutter/material.dart';
 import 'carouselWidget.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              Container(child: const carouselWidget()),
+              Container(child: const CarouselWidget()),
             ],
           ),
         ),
